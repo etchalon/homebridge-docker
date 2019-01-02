@@ -12,14 +12,17 @@ RUN apt-get update; \
     apt-get install -y curl wget; \
     apt-get install -y libnss-mdns avahi-discover libavahi-compat-libdnssd-dev libkrb5-dev; \
     apt-get install -y ffmpeg; \
-    apt-get install -y nano vim
+    apt-get install -y nano vim automake autoconf autotools-dev libtool g++
 
 # Install latest Homebridge
 # -------------------------------------------------------------------------
 # You can force a specific version by setting HOMEBRIDGE_VERSION
 # See https://github.com/marcoraddatz/homebridge-docker#homebridge_version
 # -------------------------------------------------------------------------
-RUN npm install -g homebridge --unsafe-perm
+RUN npm install -g yarn
+RUN yarn global add homebridge
+RUN yarn global add homebridge-apple-tv
+RUN yarn global add homebridge-chamberlain homebridge-nest homebridge-nest-cam homebridge-xbox-one-lirc homebridge-vizio
 
 # MISC settings
 COPY avahi-daemon.conf /etc/avahi/avahi-daemon.conf
