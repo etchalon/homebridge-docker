@@ -30,7 +30,7 @@ if [ "$HOMEBRIDGE_VERSION" ]
 then
     echo "Force the installation of Homebridge version '$HOMEBRIDGE_VERSION'."
 
-    npm install -g "homebridge@${HOMEBRIDGE_VERSION}" --unsafe-perm
+    yarn global add "homebridge@${HOMEBRIDGE_VERSION}"
 fi
 
 # Install plugins via package.json
